@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", "Plus Jakarta Sans", "IBM Plex Sans", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-display);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Brand Colors */
+  --color-brand-navy: #1B2A4A;
+  --color-brand-blue: #2D4A7A;
+  --color-brand-turquoise: #3AAFA9;
+  --color-brand-green: #38B000;
+  --color-brand-orange: #FF8C42;
+  --color-brand-red: #E63946;
+  --color-brand-cream: #FDF8F0;
+
+  /* Status Colors */
+  --color-status-success: #38B000;
+  --color-status-warning: #FF8C42;
+  --color-status-danger: #E63946;
+  --color-status-info: #3AAFA9;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Brand-themed light mode */
+  --background: #FDF8F0;
+  --foreground: #1B2A4A;
+  --card: #ffffff;
+  --card-foreground: #1B2A4A;
+  --popover: #ffffff;
+  --popover-foreground: #1B2A4A;
+  --primary: #3AAFA9;
+  --primary-foreground: #ffffff;
+  --secondary: #E9ECEF;
+  --secondary-foreground: #1B2A4A;
+  --muted: #F8F9FA;
+  --muted-foreground: #6C757D;
+  --accent: #2D4A7A;
+  --accent-foreground: #ffffff;
+  --destructive: #E63946;
+  --border: #DEE2E6;
+  --input: #DEE2E6;
+  --ring: #3AAFA9;
+  --chart-1: #3AAFA9;
+  --chart-2: #2D4A7A;
+  --chart-3: #38B000;
+  --chart-4: #FF8C42;
+  --chart-5: #E63946;
+  --radius: 0.75rem;
+  --sidebar: #1B2A4A;
+  --sidebar-foreground: #F8F9FA;
+  --sidebar-primary: #3AAFA9;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2D4A7A;
+  --sidebar-accent-foreground: #F8F9FA;
+  --sidebar-border: #2D4A7A;
+  --sidebar-ring: #3AAFA9;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    @apply font-sans;
+    direction: rtl;
+    scroll-behavior: smooth;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Premium typography defaults */
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-brand-navy;
+  }
+
+  /* Tabular numbers for financial data */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Smooth transitions for interactive elements */
+  a, button, input, select, textarea {
+    @apply transition-colors duration-150;
+  }
+
+  /* Better scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CED4DA;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ADB5BD;
+  }
+
+  /* NIS currency and phone inputs — always LTR */
+  input[type="tel"],
+  input[type="number"],
+  input[inputmode="numeric"],
+  input[inputmode="decimal"] {
+    direction: ltr;
+    text-align: right;
+  }
+}
+
+/* Mobile sticky CTA bar */
+@layer components {
+  .sticky-cta-mobile {
+    @apply fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-t border-border p-4 md:hidden;
+  }
+}
