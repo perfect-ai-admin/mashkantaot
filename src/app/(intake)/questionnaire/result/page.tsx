@@ -148,7 +148,7 @@ export default function ResultPage() {
         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-500 mb-3">
           {PRODUCT_LABELS[productType]}
         </span>
-        <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+        <h1 className="text-xl font-bold tracking-tight text-gray-900">
           תוצאת הבדיקה הראשונית
         </h1>
       </div>
@@ -190,7 +190,7 @@ export default function ResultPage() {
             <p className="text-xs text-gray-400 font-medium mb-1">
               {productType === 'refinance' ? 'החזר חודשי משוער לאחר מחזור' : 'החזר חודשי משוער'}
             </p>
-            <p className="text-3xl font-black text-brand-navy tabular-nums tracking-tight">
+            <p className="text-2xl font-bold text-gray-900 tabular-nums tracking-tight">
               {formatCurrency(indication.estimatedPayment)}
             </p>
             <p className="text-xs text-gray-400 mt-1.5">* הערכה בלבד, בכפוף לתנאי הבנק</p>
@@ -200,7 +200,7 @@ export default function ResultPage() {
 
       {/* Next Steps */}
       <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_2px_8px_0_rgb(0_0_0/0.04)]">
-        <h3 className="font-bold text-brand-navy text-sm tracking-tight mb-4">מה הלאה?</h3>
+        <h3 className="text-sm font-semibold text-gray-900 mb-4">מה הלאה?</h3>
         <ul className="flex flex-col gap-3">
           {[
             'פתחו תיק ואנחנו נתחיל לעבד את הבקשה',

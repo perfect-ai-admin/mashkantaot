@@ -186,17 +186,17 @@ const CASES = [
 ]
 
 const PRIORITY_CONFIG: Record<Priority, { label: string; dot: string; badge: string }> = {
-  urgent: { label: "דחוף", dot: "bg-red-500", badge: "bg-red-50 text-red-700 border-red-200" },
-  high: { label: "גבוה", dot: "bg-brand-orange", badge: "bg-orange-50 text-orange-700 border-orange-200" },
-  normal: { label: "רגיל", dot: "bg-brand-blue", badge: "bg-blue-50 text-blue-700 border-blue-200" },
-  low: { label: "נמוך", dot: "bg-gray-300", badge: "bg-gray-50 text-gray-600 border-gray-200" },
+  urgent: { label: "דחוף", dot: "bg-red-500", badge: "bg-red-50 text-red-600 border-red-100/80" },
+  high: { label: "גבוה", dot: "bg-brand-orange", badge: "bg-amber-50 text-amber-600 border-amber-100/80" },
+  normal: { label: "רגיל", dot: "bg-brand-blue", badge: "bg-blue-50 text-blue-600 border-blue-100/80" },
+  low: { label: "נמוך", dot: "bg-gray-300", badge: "bg-gray-50 text-gray-500 border-gray-100/80" },
 }
 
 const STATUS_CONFIG: Record<TaskStatus, { label: string; style: string }> = {
-  pending: { label: "ממתין", style: "bg-amber-50 text-amber-700 border-amber-200" },
-  in_progress: { label: "בטיפול", style: "bg-blue-50 text-blue-700 border-blue-200" },
-  completed: { label: "הושלם", style: "bg-green-50 text-green-700 border-green-200" },
-  cancelled: { label: "בוטל", style: "bg-gray-50 text-gray-500 border-gray-200" },
+  pending: { label: "ממתין", style: "bg-amber-50 text-amber-600 border-amber-100/80" },
+  in_progress: { label: "בטיפול", style: "bg-blue-50 text-blue-600 border-blue-100/80" },
+  completed: { label: "הושלם", style: "bg-green-50 text-green-600 border-green-100/80" },
+  cancelled: { label: "בוטל", style: "bg-gray-50 text-gray-500 border-gray-100/80" },
 }
 
 function getDueDateStyle(dueDate: string, status: TaskStatus) {
@@ -287,7 +287,7 @@ export default function TasksPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+          <h1 className="text-xl font-bold tracking-tight text-gray-900">
             ניהול משימות
           </h1>
           <p className="text-sm text-gray-500 mt-1">{total} משימות סה"כ</p>
@@ -295,7 +295,7 @@ export default function TasksPage() {
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger
             render={
-              <Button className="gap-1.5 bg-brand-navy hover:bg-brand-blue text-white shadow-sm" />
+              <Button className="gap-1.5 bg-brand-navy hover:bg-brand-blue text-white shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]" />
             }
           >
             <Plus className="h-4 w-4" strokeWidth={2} />
@@ -371,7 +371,7 @@ export default function TasksPage() {
                         "flex items-center gap-1.5 px-2.5 py-2 rounded-lg border cursor-pointer text-xs font-medium transition-colors",
                         form.priority === p
                           ? PRIORITY_CONFIG[p].badge + " border-current"
-                          : "border-gray-200 text-gray-500 hover:border-gray-300"
+                          : "border-gray-200/60 text-gray-500 hover:border-gray-200"
                       )}
                     >
                       <RadioGroupItem value={p} className="sr-only" />
@@ -420,7 +420,7 @@ export default function TasksPage() {
             <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center mb-3", s.bg)}>
               <s.icon className={cn("h-4 w-4", s.color)} strokeWidth={1.75} />
             </div>
-            <p className="text-2xl font-black text-brand-navy tabular-nums leading-none mb-1">{s.value}</p>
+            <p className="text-2xl font-bold text-gray-900 tabular-nums tracking-tight leading-none mb-1">{s.value}</p>
             <p className="text-xs text-gray-500 font-medium">{s.label}</p>
           </Card>
         ))}
@@ -488,7 +488,7 @@ export default function TasksPage() {
       {/* Task List */}
       <div className="space-y-2">
         {filtered.length === 0 ? (
-          <Card className="p-12 text-center shadow-sm">
+          <Card className="p-12 text-center shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <ClipboardList className="h-10 w-10 text-gray-200 mx-auto mb-3" />
             <p className="text-sm text-gray-400 font-medium">אין משימות תואמות</p>
           </Card>

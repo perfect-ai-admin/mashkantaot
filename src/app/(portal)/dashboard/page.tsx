@@ -40,7 +40,7 @@ export default function PortalDashboard() {
     <div className="space-y-6">
       {/* Welcome Header */}
       <div>
-        <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+        <h1 className="text-xl font-bold tracking-tight text-gray-900">
           שלום, ישראל
         </h1>
         <p className="text-sm text-gray-500 mt-1">
@@ -55,7 +55,7 @@ export default function PortalDashboard() {
             <p className="text-xs text-gray-500 font-medium tabular-nums mb-1">
               תיק {MOCK_CASE.case_number}
             </p>
-            <h2 className="text-xl font-bold text-brand-navy tracking-tight">
+            <h2 className="text-lg font-semibold text-gray-900 tracking-tight">
               {MOCK_CASE.product_type}
             </h2>
           </div>
@@ -68,7 +68,7 @@ export default function PortalDashboard() {
         <div className="space-y-2.5">
           <div className="flex justify-between items-center text-sm">
             <span className="text-gray-500 font-medium">התקדמות התיק</span>
-            <span className="font-bold text-brand-navy tabular-nums">{MOCK_CASE.progress}%</span>
+            <span className="font-bold text-gray-900 tabular-nums">{MOCK_CASE.progress}%</span>
           </div>
           <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
             <div
@@ -86,7 +86,7 @@ export default function PortalDashboard() {
             <span className="text-[10px] font-black text-brand-turquoise">שכ</span>
           </div>
           <p className="text-sm text-gray-600">
-            יועץ מטפל: <span className="font-semibold text-brand-navy">{MOCK_CASE.advisor}</span>
+            יועץ מטפל: <span className="font-semibold text-gray-900">{MOCK_CASE.advisor}</span>
           </p>
         </div>
       </Card>
@@ -99,7 +99,7 @@ export default function PortalDashboard() {
             <div className="w-8 h-8 rounded-lg bg-brand-orange/10 flex items-center justify-center">
               <AlertCircle className="h-4 w-4 text-brand-orange" strokeWidth={1.75} />
             </div>
-            <h3 className="font-bold text-brand-navy">מסמכים חסרים</h3>
+            <h3 className="text-sm font-semibold text-gray-900">מסמכים חסרים</h3>
             <span className="ms-auto inline-flex items-center justify-center w-5 h-5 rounded-full bg-brand-orange text-white text-[10px] font-bold tabular-nums">
               {MOCK_CASE.missing_docs.length}
             </span>
@@ -133,7 +133,7 @@ export default function PortalDashboard() {
 
         {/* Timeline */}
         <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_2px_8px_0_rgb(0_0_0/0.06)]">
-          <h3 className="font-bold text-brand-navy mb-5">מצב התיק</h3>
+          <h3 className="text-sm font-semibold text-gray-900 mb-5">מצב התיק</h3>
           <div className="flex flex-col gap-0">
             {MOCK_CASE.timeline.map((step, i) => (
               <div key={i} className="flex gap-4">
@@ -188,7 +188,7 @@ export default function PortalDashboard() {
 
       {/* Quick Actions */}
       <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_2px_8px_0_rgb(0_0_0/0.06)]">
-        <h3 className="font-bold text-brand-navy mb-4">פעולות מהירות</h3>
+        <h3 className="text-sm font-semibold text-gray-900 mb-4">פעולות מהירות</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { icon: Upload, label: "העלה מסמך", href: "/cases/mock-id/documents", color: "text-brand-turquoise", bg: "bg-brand-turquoise/8" },

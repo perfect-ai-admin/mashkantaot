@@ -26,7 +26,7 @@ export default function QuestionnaireLayout({ children }: { children: React.Reac
             <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-turquoise via-[#2fa9a3] to-brand-navy flex items-center justify-center shadow-[0_2px_8px_0_rgb(58_175_169/0.3)]">
               <span className="text-white font-black text-xs leading-none">מ</span>
             </div>
-            <span className="font-bold text-base text-brand-navy tracking-tight">
+            <span className="font-bold text-base text-gray-900 tracking-tight">
               משכנתא חכמה
             </span>
           </Link>

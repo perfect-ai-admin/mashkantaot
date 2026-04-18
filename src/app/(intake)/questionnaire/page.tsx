@@ -57,7 +57,7 @@ function QuestionnaireContent() {
   return (
     <div className="flex flex-col gap-8">
       <div className="text-center">
-        <h1 className="text-3xl font-display font-bold text-brand-navy tracking-tight mb-2">
+        <h1 className="text-2xl font-bold text-gray-900 tracking-tight mb-2">
           איזה שירות מתאים לך?
         </h1>
         <p className="text-gray-500 leading-relaxed">
@@ -86,7 +86,7 @@ function QuestionnaireContent() {
               <Icon className="w-7 h-7 text-brand-turquoise" strokeWidth={1.75} />
             </div>
             <div className="flex flex-col gap-1 flex-1 min-w-0">
-              <span className="text-base font-bold text-brand-navy tracking-tight">{title}</span>
+              <span className="text-base font-semibold text-gray-900 tracking-tight">{title}</span>
               <span className="text-sm text-gray-500 leading-relaxed">{description}</span>
             </div>
             <div className="w-8 h-8 rounded-xl bg-gray-50 group-hover:bg-brand-turquoise/10 flex items-center justify-center shrink-0 mt-3 transition-colors duration-200">

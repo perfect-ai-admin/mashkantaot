@@ -100,9 +100,9 @@ export default function CaseDetailPage({ params }: { params: { id: string } }) {
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs text-gray-400 tabular-nums mb-1">תיק {MOCK_CASE.case_number}</p>
-            <h1 className="text-2xl font-bold text-gray-900 tracking-tight">{MOCK_CASE.product_type}</h1>
+            <h1 className="text-xl font-bold tracking-tight text-gray-900">{MOCK_CASE.product_type}</h1>
           </div>
-          <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-700">
+          <span className="inline-flex items-center rounded-md bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-600">
             {CASE_STATUS_LABELS[MOCK_CASE.status]}
           </span>
         </div>
@@ -140,7 +140,7 @@ export default function CaseDetailPage({ params }: { params: { id: string } }) {
                   {idx < STATUS_STEPS.length - 1 && (
                     <div
                       className={`h-0.5 w-8 mx-1 mt-[-14px] rounded-full transition-colors ${
-                        isDone ? "bg-brand-turquoise" : "bg-gray-200"
+                        isDone ? "bg-brand-turquoise" : "bg-gray-100"
                       }`}
                     />
                   )}
@@ -178,7 +178,7 @@ export default function CaseDetailPage({ params }: { params: { id: string } }) {
 
       {/* Tabs */}
       <Tabs defaultValue="overview">
-        <TabsList className="w-full justify-start bg-gray-100/80">
+        <TabsList className="w-full justify-start bg-gray-50/80">
           <TabsTrigger value="overview">סקירה</TabsTrigger>
           <TabsTrigger value="documents">
             מסמכים
@@ -291,7 +291,7 @@ export default function CaseDetailPage({ params }: { params: { id: string } }) {
         {/* Timeline Tab */}
         <TabsContent value="timeline" className="pt-4">
           <div className="relative">
-            <div className="absolute right-[17px] top-0 bottom-0 w-px bg-gray-200" />
+            <div className="absolute right-[17px] top-0 bottom-0 w-px bg-gray-100" />
             <div className="space-y-6">
               {MOCK_TIMELINE.map((entry) => {
                 const iconMap = {

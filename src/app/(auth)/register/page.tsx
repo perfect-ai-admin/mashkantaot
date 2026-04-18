@@ -21,7 +21,7 @@ export default function RegisterPage() {
   return (
     <>
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+        <h1 className="text-xl font-bold tracking-tight text-gray-900">
           יצירת חשבון
         </h1>
         <p className="text-sm text-gray-500 mt-1.5">
@@ -31,7 +31,7 @@ export default function RegisterPage() {
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="space-y-1.5">
-          <Label htmlFor="name" className="text-sm font-semibold text-gray-700">
+          <Label htmlFor="name" className="text-sm font-medium text-gray-700">
             שם מלא
           </Label>
           <div className="relative">
@@ -43,14 +43,14 @@ export default function RegisterPage() {
               id="name"
               type="text"
               placeholder="ישראל ישראלי"
-              className="ps-10 h-11 rounded-xl border-gray-200 bg-white focus-visible:border-brand-turquoise focus-visible:ring-brand-turquoise/20 text-sm"
+              className="ps-10 h-11 rounded-xl border-gray-200/60 bg-gray-50/50 focus:bg-white focus-visible:border-brand-turquoise focus-visible:ring-2 focus-visible:ring-brand-turquoise/10 text-sm"
               required
             />
           </div>
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="phone" className="text-sm font-semibold text-gray-700">
+          <Label htmlFor="phone" className="text-sm font-medium text-gray-700">
             טלפון
           </Label>
           <div className="relative">
@@ -62,7 +62,7 @@ export default function RegisterPage() {
               id="phone"
               type="tel"
               placeholder="050-1234567"
-              className="ps-10 h-11 rounded-xl border-gray-200 bg-white focus-visible:border-brand-turquoise focus-visible:ring-brand-turquoise/20 text-sm"
+              className="ps-10 h-11 rounded-xl border-gray-200/60 bg-gray-50/50 focus:bg-white focus-visible:border-brand-turquoise focus-visible:ring-2 focus-visible:ring-brand-turquoise/10 text-sm"
               dir="ltr"
               required
             />
@@ -70,7 +70,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="email" className="text-sm font-semibold text-gray-700">
+          <Label htmlFor="email" className="text-sm font-medium text-gray-700">
             אימייל
           </Label>
           <div className="relative">
@@ -82,7 +82,7 @@ export default function RegisterPage() {
               id="email"
               type="email"
               placeholder="your@email.com"
-              className="ps-10 h-11 rounded-xl border-gray-200 bg-white focus-visible:border-brand-turquoise focus-visible:ring-brand-turquoise/20 text-sm"
+              className="ps-10 h-11 rounded-xl border-gray-200/60 bg-gray-50/50 focus:bg-white focus-visible:border-brand-turquoise focus-visible:ring-2 focus-visible:ring-brand-turquoise/10 text-sm"
               dir="ltr"
               required
             />
@@ -90,7 +90,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="password" className="text-sm font-semibold text-gray-700">
+          <Label htmlFor="password" className="text-sm font-medium text-gray-700">
             סיסמה
           </Label>
           <div className="relative">
@@ -102,7 +102,7 @@ export default function RegisterPage() {
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="לפחות 8 תווים"
-              className="ps-10 pe-11 h-11 rounded-xl border-gray-200 bg-white focus-visible:border-brand-turquoise focus-visible:ring-brand-turquoise/20 text-sm"
+              className="ps-10 pe-11 h-11 rounded-xl border-gray-200/60 bg-gray-50/50 focus:bg-white focus-visible:border-brand-turquoise focus-visible:ring-2 focus-visible:ring-brand-turquoise/10 text-sm"
               dir="ltr"
               required
               minLength={8}

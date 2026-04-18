@@ -36,7 +36,7 @@ export default function ProfilePage() {
   return (
     <div className="space-y-6 max-w-xl">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 tracking-tight">הפרופיל שלי</h1>
+        <h1 className="text-xl font-bold tracking-tight text-gray-900">הפרופיל שלי</h1>
         <p className="text-sm text-gray-500 mt-0.5">נהל את פרטי החשבון שלך</p>
       </div>
 
@@ -44,7 +44,7 @@ export default function ProfilePage() {
       <Card>
         <CardContent className="pt-6 pb-6">
           <div className="flex items-center gap-4 mb-6">
-            <div className="flex size-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-bl from-brand-turquoise to-cyan-400 text-white text-xl font-bold shadow-sm">
+            <div className="flex size-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-bl from-brand-turquoise via-[#2fa9a3] to-cyan-400 text-white text-xl font-bold shadow-[0_2px_8px_0_rgb(58_175_169/0.3)]">
               {MOCK_PROFILE.initials}
             </div>
             <div>

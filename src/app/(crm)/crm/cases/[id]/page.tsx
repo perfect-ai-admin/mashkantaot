@@ -153,10 +153,10 @@ const MOCK_OFFERS = [
 
 const PRIORITY_LABELS = { urgent: "דחוף", high: "גבוה", normal: "רגיל", low: "נמוך" }
 const PRIORITY_CLASSES = {
-  urgent: "bg-red-100 text-red-700 border border-red-200",
-  high: "bg-orange-100 text-orange-700 border border-orange-200",
-  normal: "bg-gray-100 text-gray-600 border border-gray-200",
-  low: "bg-slate-100 text-slate-500 border border-slate-200",
+  urgent: "bg-red-50 text-red-600",
+  high: "bg-amber-50 text-amber-600",
+  normal: "bg-gray-50 text-gray-600",
+  low: "bg-slate-50 text-slate-500",
 }
 
 const TASK_STATUS_LABELS: Record<TaskStatus, string> = {
@@ -211,7 +211,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+              <h1 className="text-xl font-bold tracking-tight text-gray-900">
                 {c.customer.full_name}
               </h1>
               <span className="font-mono text-sm text-gray-400 tabular-nums">{c.case_number}</span>
@@ -234,7 +234,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
       </div>
 
       {/* Status Progress */}
-      <Card className="p-5 shadow-sm">
+      <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
         <div className="flex items-center gap-1 overflow-x-auto pb-1">
           {ALL_STATUSES.map((s, i) => {
             const isCompleted = i < currentStatusIdx
@@ -265,7 +265,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                   </span>
                 </div>
                 {i < ALL_STATUSES.length - 1 && (
-                  <div className={cn("h-px w-4 shrink-0", i < currentStatusIdx ? "bg-brand-green" : "bg-gray-200")} />
+                  <div className={cn("h-px w-4 shrink-0", i < currentStatusIdx ? "bg-brand-green" : "bg-gray-100")} />
                 )}
               </div>
             )
@@ -293,7 +293,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 space-y-5">
               {/* Customer */}
-              <Card className="p-6 shadow-sm">
+              <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
                 <h2 className="text-sm font-bold text-gray-900 mb-4">פרטי לקוח</h2>
                 <div className="grid grid-cols-2 gap-4">
                   {[
@@ -315,7 +315,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
               </Card>
 
               {/* Property */}
-              <Card className="p-6 shadow-sm">
+              <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
                 <h2 className="text-sm font-bold text-gray-900 mb-4">פרטי נכס ומשכנתא</h2>
                 <div className="grid grid-cols-2 gap-4">
                   {[
@@ -336,7 +336,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
             {/* Sidebar */}
             <div className="space-y-4">
               {/* Status Change */}
-              <Card className="p-5 shadow-sm">
+              <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
                 <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">שנה סטטוס</h3>
                 <div className="mb-3">
                   <StatusBadge type="case" status={status} />
@@ -358,7 +358,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
               </Card>
 
               {/* Advisor */}
-              <Card className="p-5 shadow-sm">
+              <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
                 <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">יועץ מטפל</h3>
                 <div className="flex items-center gap-3">
                   <div className="h-9 w-9 rounded-xl bg-brand-navy/10 flex items-center justify-center text-xs font-bold text-brand-navy">
@@ -372,10 +372,10 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
               </Card>
 
               {/* Docs Summary */}
-              <Card className="p-5 shadow-sm">
+              <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
                 <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">מסמכים</h3>
                 <div className="flex items-end gap-2 mb-2">
-                  <span className="text-2xl font-black text-brand-navy tabular-nums leading-none">{approvedDocs}</span>
+                  <span className="text-2xl font-bold text-gray-900 tabular-nums tracking-tight leading-none">{approvedDocs}</span>
                   <span className="text-sm text-gray-400 mb-0.5">/ {totalDocs}</span>
                 </div>
                 <Progress value={(approvedDocs / totalDocs) * 100} className="h-1.5" />
@@ -383,7 +383,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
               </Card>
 
               {/* Dates */}
-              <Card className="p-5 shadow-sm">
+              <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
                 <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">תאריכים</h3>
                 <div className="space-y-2">
                   <div>
@@ -402,7 +402,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
 
         {/* ── Tab 2: Documents ── */}
         <TabsContent value="documents">
-          <Card className="shadow-sm">
+          <Card className="shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
               <div>
                 <h2 className="text-sm font-bold text-gray-900">מסמכים נדרשים</h2>
@@ -479,7 +479,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
         <TabsContent value="tasks">
           <div className="space-y-4">
             {/* Add Task */}
-            <Card className="p-5 shadow-sm">
+            <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
               <h3 className="text-sm font-bold text-gray-900 mb-4">הוסף משימה</h3>
               <div className="flex flex-wrap gap-3">
                 <Input
@@ -521,7 +521,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                     "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors",
                     taskFilter === f
                       ? "bg-brand-navy text-white"
-                      : "bg-white text-gray-500 hover:bg-gray-100 border border-gray-200",
+                      : "bg-white text-gray-500 hover:bg-gray-100 border border-gray-200/60",
                   )}
                 >
                   {f === "all" ? "הכל" : f === "pending" ? "פתוחות" : "הושלמו"}
@@ -529,14 +529,14 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
               ))}
             </div>
 
-            <Card className="shadow-sm divide-y divide-gray-50">
+            <Card className="shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)] divide-y divide-gray-50">
               {filteredTasks.map((task) => (
                 <div key={task.id} className="flex items-center gap-4 px-5 py-4 hover:bg-gray-50/50">
                   <button className={cn(
                     "h-5 w-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors",
                     task.status === "completed"
                       ? "border-brand-green bg-brand-green"
-                      : "border-gray-300 hover:border-brand-green",
+                      : "border-gray-200/60 hover:border-brand-green",
                   )}>
                     {task.status === "completed" && <Check className="h-3 w-3 text-white" strokeWidth={3} />}
                   </button>
@@ -575,7 +575,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
         <TabsContent value="timeline">
           <div className="space-y-4">
             {/* Add Note */}
-            <Card className="p-5 shadow-sm">
+            <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
               <Textarea
                 placeholder="הוסף הערה לציר הזמן..."
                 value={newNote}
@@ -592,7 +592,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
             </Card>
 
             {/* Timeline */}
-            <Card className="p-6 shadow-sm">
+            <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
               <div className="relative">
                 <div className="absolute end-4 top-0 bottom-0 w-px bg-gray-100" />
                 <div className="space-y-6">
@@ -634,10 +634,10 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
           ) : (
             <div className="space-y-5">
               {MOCK_OFFERS.map((offer) => (
-                <Card key={offer.id} className="shadow-sm overflow-hidden">
+                <Card key={offer.id} className="shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)] overflow-hidden">
                   <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50/50">
                     <div className="flex items-center gap-3">
-                      <div className="h-9 w-9 rounded-xl bg-white border border-gray-200 flex items-center justify-center">
+                      <div className="h-9 w-9 rounded-xl bg-white border border-gray-200/60 flex items-center justify-center">
                         <Building2 className="h-4 w-4 text-brand-navy" strokeWidth={1.75} />
                       </div>
                       <div>
@@ -648,7 +648,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                     <div className="flex items-center gap-4">
                       <div className="text-left">
                         <p className="text-xs text-gray-400">החזר חודשי</p>
-                        <p className="text-base font-black text-brand-navy tabular-nums">
+                        <p className="text-base font-bold text-gray-900 tabular-nums tracking-tight">
                           {formatCurrency(offer.monthly_payment!)}
                         </p>
                       </div>
@@ -662,7 +662,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                         "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium border",
                         offer.status === "approved"
                           ? "bg-brand-green/10 text-brand-green border-brand-green/30"
-                          : "bg-gray-100 text-gray-600 border-gray-200"
+                          : "bg-gray-100 text-gray-600 border-gray-200/60"
                       )}>
                         {offer.status === "approved" ? "אושר" : "ממתין"}
                       </span>
@@ -696,7 +696,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
               ))}
 
               {/* Comparison summary */}
-              <Card className="p-5 shadow-sm bg-gradient-to-l from-brand-green/5 to-transparent border-brand-green/20">
+              <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)] bg-gradient-to-l from-brand-green/5 to-transparent border-brand-green/20">
                 <div className="flex items-center gap-2 mb-3">
                   <TrendingUp className="h-4 w-4 text-brand-green" strokeWidth={1.75} />
                   <h3 className="text-sm font-bold text-gray-900">השוואה מהירה</h3>
@@ -707,7 +707,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                       "rounded-xl p-4 border",
                       o.status === "approved"
                         ? "bg-brand-green/8 border-brand-green/20"
-                        : "bg-white border-gray-200"
+                        : "bg-white border-gray-200/60"
                     )}>
                       <p className="text-xs font-bold text-gray-700 mb-2 flex items-center gap-1.5">
                         {o.bank_name}
@@ -715,7 +715,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                           <span className="text-brand-green text-[10px] font-semibold">✓ מומלץ</span>
                         )}
                       </p>
-                      <p className="text-xl font-black text-brand-navy tabular-nums">{formatCurrency(o.monthly_payment!)}</p>
+                      <p className="text-xl font-bold text-gray-900 tabular-nums tracking-tight">{formatCurrency(o.monthly_payment!)}</p>
                       <p className="text-xs text-gray-400 mt-0.5">/ חודש</p>
                       <p className="text-xs text-gray-500 mt-2">
                         ריבית סה״כ: <span className="font-semibold tabular-nums">{formatCurrency(o.total_interest!)}</span>

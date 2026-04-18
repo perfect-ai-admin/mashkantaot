@@ -48,7 +48,7 @@ export default function CasesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 tracking-tight">התיקים שלי</h1>
+          <h1 className="text-xl font-bold tracking-tight text-gray-900">התיקים שלי</h1>
           <p className="text-sm text-gray-500 mt-1">כל תיקי המשכנתא שלך במקום אחד</p>
         </div>
         {hasCases && (
@@ -82,7 +82,7 @@ export default function CasesPage() {
       ) : (
         <div className="space-y-4">
           {MOCK_CASES.map((c) => (
-            <Card key={c.id} className="hover:shadow-md transition-shadow duration-200">
+            <Card key={c.id} className="shadow-[0_1px_3px_0_rgb(0_0_0/0.04),0_6px_16px_-2px_rgb(0_0_0/0.05)] hover:shadow-[0_8px_16px_-4px_rgb(0_0_0/0.08),0_4px_8px_-2px_rgb(0_0_0/0.04)] transition-all duration-200 border border-gray-100/80">
               <CardContent className="pt-5 pb-5">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">

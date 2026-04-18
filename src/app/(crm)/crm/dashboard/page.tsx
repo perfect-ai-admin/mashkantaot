@@ -78,7 +78,7 @@ export default function CrmDashboard() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+        <h1 className="text-xl font-bold tracking-tight text-gray-900">
           דשבורד
         </h1>
         <p className="text-sm text-gray-500 mt-1">סיכום פעילות &middot; 17 באפריל 2026</p>
@@ -92,18 +92,18 @@ export default function CrmDashboard() {
             className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_2px_8px_0_rgb(0_0_0/0.06)] hover:shadow-[0_4px_16px_-4px_rgb(0_0_0/0.08),0_2px_8px_-2px_rgb(0_0_0/0.04)] transition-all duration-200 hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className={`w-10 h-10 rounded-xl ${stat.bg} flex items-center justify-center`}>
-                <stat.icon className={`h-5 w-5 ${stat.color}`} strokeWidth={1.75} />
+              <div className="w-9 h-9 rounded-lg bg-gray-50 flex items-center justify-center">
+                <stat.icon className="h-5 w-5 text-gray-400" strokeWidth={1.75} />
               </div>
             </div>
-            <p className="text-3xl font-black text-brand-navy tabular-nums tracking-tight leading-none mb-1">
+            <p className="text-2xl font-bold text-gray-900 tabular-nums tracking-tight leading-none mb-1">
               {stat.value}
             </p>
-            <p className="text-sm text-gray-500 font-medium">{stat.label}</p>
+            <p className="text-xs font-medium text-gray-500">{stat.label}</p>
             {stat.change && (
               <p className={cn(
-                "text-xs font-semibold mt-2",
-                stat.changePositive ? "text-brand-green" : "text-brand-orange"
+                "text-xs font-medium mt-2",
+                stat.changePositive ? "text-emerald-500" : "text-amber-500"
               )}>
                 {stat.change}
               </p>
@@ -119,7 +119,7 @@ export default function CrmDashboard() {
             <AlertTriangle className="h-5 w-5 text-brand-orange" strokeWidth={1.75} />
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-brand-navy text-sm">תיקים שדורשים תשומת לב</h3>
+            <h3 className="text-sm font-semibold text-gray-900 text-sm">תיקים שדורשים תשומת לב</h3>
             <p className="text-sm text-gray-600 mt-0.5 leading-relaxed">
               3 תיקים לא עודכנו מעל 5 ימים &middot; 2 תיקים ממתינים למסמכים מעל שבוע
             </p>
@@ -139,7 +139,7 @@ export default function CrmDashboard() {
         {/* Recent Leads */}
         <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_2px_8px_0_rgb(0_0_0/0.06)]">
           <div className="flex items-center justify-between mb-5">
-            <h3 className="font-bold text-brand-navy">לידים אחרונים</h3>
+            <h3 className="text-sm font-semibold text-gray-900">לידים אחרונים</h3>
             <Button
               render={<Link href="/crm/leads" />}
               className="h-7 px-3 bg-transparent hover:bg-gray-50 text-brand-turquoise font-semibold text-xs rounded-lg transition-all duration-200 flex items-center gap-1"
@@ -155,7 +155,7 @@ export default function CrmDashboard() {
                 className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-navy/8 to-brand-blue/8 flex items-center justify-center text-xs font-bold text-brand-navy shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-navy/8 to-brand-blue/8 flex items-center justify-center text-xs text-sm font-semibold text-gray-900 shrink-0">
                     {lead.initials}
                   </div>
                   <div>
@@ -179,7 +179,7 @@ export default function CrmDashboard() {
         {/* Pending Tasks */}
         <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_2px_8px_0_rgb(0_0_0/0.06)]">
           <div className="flex items-center justify-between mb-5">
-            <h3 className="font-bold text-brand-navy">משימות לטיפול</h3>
+            <h3 className="text-sm font-semibold text-gray-900">משימות לטיפול</h3>
             <Button
               render={<Link href="/crm/tasks" />}
               className="h-7 px-3 bg-transparent hover:bg-gray-50 text-brand-turquoise font-semibold text-xs rounded-lg transition-all duration-200 flex items-center gap-1"

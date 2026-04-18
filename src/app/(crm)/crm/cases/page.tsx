@@ -163,10 +163,10 @@ const MOCK_CASES: MockCase[] = [
 ]
 
 const PRIORITY_STYLES: Record<MockCase["priority"], { label: string; className: string }> = {
-  urgent: { label: "דחוף", className: "bg-red-100 text-red-700 border border-red-200" },
-  high: { label: "גבוה", className: "bg-orange-100 text-orange-700 border border-orange-200" },
-  normal: { label: "רגיל", className: "bg-gray-100 text-gray-600 border border-gray-200" },
-  low: { label: "נמוך", className: "bg-slate-100 text-slate-500 border border-slate-200" },
+  urgent: { label: "דחוף", className: "bg-red-50 text-red-600" },
+  high: { label: "גבוה", className: "bg-amber-50 text-amber-600" },
+  normal: { label: "רגיל", className: "bg-gray-50 text-gray-600" },
+  low: { label: "נמוך", className: "bg-slate-50 text-slate-500" },
 }
 
 const ADVISORS = ["כל היועצים", "יונתן לוי", "שרה גולד", "אבי כהן"]
@@ -205,12 +205,12 @@ export default function CasesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">ניהול תיקים</h1>
+          <h1 className="text-xl font-bold tracking-tight text-gray-900">ניהול תיקים</h1>
           <p className="text-sm text-gray-500 mt-0.5">{MOCK_CASES.length} תיקים פעילים</p>
         </div>
         <Button
           render={<Link href="/crm/cases/new" />}
-          className="h-9 px-4 bg-brand-navy hover:bg-brand-navy/90 text-white font-semibold text-sm rounded-xl shadow-sm gap-2 flex items-center"
+          className="h-9 px-4 bg-brand-navy hover:bg-brand-navy/90 text-white font-semibold text-sm rounded-xl shadow-[0_1px_2px_0_rgb(0_0_0/0.04)] gap-2 flex items-center"
         >
           <Plus className="h-4 w-4" strokeWidth={2.5} />
           פתח תיק חדש
@@ -218,7 +218,7 @@ export default function CasesPage() {
       </div>
 
       {/* Filters */}
-      <Card className="p-4 shadow-sm">
+      <Card className="p-4 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
         <div className="flex flex-wrap gap-3">
           <Select value={statusFilter} onValueChange={(v) => { setStatusFilter(v ?? "all"); setPage(1) }}>
             <SelectTrigger className="w-48 text-sm">
@@ -267,18 +267,18 @@ export default function CasesPage() {
       </Card>
 
       {/* Table */}
-      <Card className="shadow-sm overflow-hidden">
+      <Card className="shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)] overflow-hidden">
         <Table>
           <TableHeader>
-            <TableRow className="bg-gray-50/80">
-              <TableHead className="text-xs font-semibold text-gray-500">מספר תיק</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">לקוח</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">סוג</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">סטטוס</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">יועץ</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500 w-32">מסמכים</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">עדיפות</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">עדכון אחרון</TableHead>
+            <TableRow className="bg-gray-50/50">
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">מספר תיק</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">לקוח</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">סוג</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">סטטוס</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">יועץ</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400 w-32">מסמכים</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">עדיפות</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">עדכון אחרון</TableHead>
               <TableHead className="w-12" />
             </TableRow>
           </TableHeader>
@@ -300,7 +300,7 @@ export default function CasesPage() {
                 return (
                   <TableRow
                     key={c.id}
-                    className="hover:bg-gray-50/60 transition-colors duration-100"
+                    className="hover:bg-gray-50/50 transition-colors border-b border-gray-50"
                   >
                     <TableCell>
                       <Link
@@ -348,7 +348,7 @@ export default function CasesPage() {
                     </TableCell>
                     <TableCell>
                       <span className={cn(
-                        "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium",
+                        "inline-flex items-center rounded-md px-2 py-0.5 text-[11px] font-medium",
                         priority.className,
                       )}>
                         {priority.label}

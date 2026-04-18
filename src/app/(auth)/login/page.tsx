@@ -21,7 +21,7 @@ export default function LoginPage() {
   return (
     <>
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+        <h1 className="text-xl font-bold tracking-tight text-gray-900">
           ברוך הבא
         </h1>
         <p className="text-sm text-gray-500 mt-1.5">
@@ -31,7 +31,7 @@ export default function LoginPage() {
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="space-y-1.5">
-          <Label htmlFor="email" className="text-sm font-semibold text-gray-700">
+          <Label htmlFor="email" className="text-sm font-medium text-gray-700">
             אימייל
           </Label>
           <div className="relative">
@@ -43,7 +43,7 @@ export default function LoginPage() {
               id="email"
               type="email"
               placeholder="your@email.com"
-              className="ps-10 h-11 rounded-xl border-gray-200 bg-white focus-visible:border-brand-turquoise focus-visible:ring-brand-turquoise/20 text-sm"
+              className="ps-10 h-11 rounded-xl border-gray-200/60 bg-gray-50/50 focus:bg-white focus-visible:border-brand-turquoise focus-visible:ring-2 focus-visible:ring-brand-turquoise/10 text-sm"
               dir="ltr"
               required
             />
@@ -52,7 +52,7 @@ export default function LoginPage() {
 
         <div className="space-y-1.5">
           <div className="flex items-center justify-between">
-            <Label htmlFor="password" className="text-sm font-semibold text-gray-700">
+            <Label htmlFor="password" className="text-sm font-medium text-gray-700">
               סיסמה
             </Label>
             <Link
@@ -71,7 +71,7 @@ export default function LoginPage() {
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="••••••••"
-              className="ps-10 pe-11 h-11 rounded-xl border-gray-200 bg-white focus-visible:border-brand-turquoise focus-visible:ring-brand-turquoise/20 text-sm"
+              className="ps-10 pe-11 h-11 rounded-xl border-gray-200/60 bg-gray-50/50 focus:bg-white focus-visible:border-brand-turquoise focus-visible:ring-2 focus-visible:ring-brand-turquoise/10 text-sm"
               dir="ltr"
               required
             />

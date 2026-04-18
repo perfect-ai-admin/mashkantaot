@@ -81,10 +81,10 @@ export function CrmSidebar({ className }: CrmSidebarProps) {
                     href={href}
                     onClick={() => setMobileOpen(false)}
                     className={cn(
-                      "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand-turquoise focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy",
+                      "flex items-center gap-3 px-3 h-9 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand-turquoise focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950",
                       isActive
-                        ? "bg-white/12 text-white shadow-[inset_0_1px_0_0_rgb(255_255_255/0.06)]"
-                        : "text-white/55 hover:bg-white/8 hover:text-white/85"
+                        ? "bg-white/10 text-white"
+                        : "text-white/55 hover:bg-white/5 hover:text-white/85"
                     )}
                   >
                     <Icon
@@ -132,7 +132,7 @@ export function CrmSidebar({ className }: CrmSidebarProps) {
       <button
         onClick={() => setMobileOpen(true)}
         aria-label="פתח תפריט ניהול"
-        className="lg:hidden fixed top-4 end-4 z-50 w-10 h-10 rounded-xl bg-brand-navy shadow-[0_2px_8px_0_rgb(27_42_74/0.4)] flex items-center justify-center text-white hover:bg-brand-blue transition-all duration-200"
+        className="lg:hidden fixed top-4 end-4 z-50 w-10 h-10 rounded-xl bg-gray-950 shadow-[0_2px_8px_0_rgb(0_0_0/0.3)] flex items-center justify-center text-white hover:bg-gray-800 transition-all duration-200"
       >
         <Menu className="w-5 h-5" strokeWidth={1.75} />
       </button>
@@ -149,7 +149,7 @@ export function CrmSidebar({ className }: CrmSidebarProps) {
       <div
         dir="rtl"
         className={cn(
-          "lg:hidden fixed top-0 end-0 z-50 h-full w-72 bg-brand-navy transform transition-transform duration-300 ease-in-out",
+          "lg:hidden fixed top-0 end-0 z-50 h-full w-72 bg-gray-950 transform transition-transform duration-300 ease-in-out",
           mobileOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -167,8 +167,8 @@ export function CrmSidebar({ className }: CrmSidebarProps) {
       <aside
         dir="rtl"
         className={cn(
-          "hidden lg:flex flex-col w-64 bg-brand-navy h-screen sticky top-0",
-          "shadow-[1px_0_0_0_rgb(255_255_255/0.05)]",
+          "hidden lg:flex flex-col w-64 bg-gray-950 h-screen sticky top-0",
+          "shadow-[1px_0_0_0_rgb(255_255_255/0.04)]",
           className
         )}
       >

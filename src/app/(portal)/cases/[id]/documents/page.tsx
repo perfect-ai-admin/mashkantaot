@@ -42,25 +42,25 @@ const RECENTLY_UPLOADED = [
 const STATUS_CONFIG = {
   approved: {
     label: "אושר",
-    cardClass: "bg-green-50 border border-green-100",
+    cardClass: "bg-green-50 border border-green-100/80",
     iconColor: "text-green-600",
     Icon: CheckCircle2,
   },
   uploaded: {
     label: "הועלה — ממתין לבדיקה",
-    cardClass: "bg-blue-50 border border-blue-100",
+    cardClass: "bg-blue-50 border border-blue-100/80",
     iconColor: "text-blue-500",
     Icon: Clock,
   },
   invalid: {
     label: "לא תקין",
-    cardClass: "bg-red-50 border border-red-100",
+    cardClass: "bg-red-50 border border-red-100/80",
     iconColor: "text-red-500",
     Icon: XCircle,
   },
   missing: {
     label: "חסר",
-    cardClass: "bg-gray-50 border border-gray-200",
+    cardClass: "bg-gray-50 border border-gray-100",
     iconColor: "text-gray-300",
     Icon: AlertCircle,
   },
@@ -78,7 +78,7 @@ export default function DocumentsPage({ params }: { params: { id: string } }) {
           <ArrowRight className="size-3.5" />
           חזרה לתיק
         </Button>
-        <h1 className="text-2xl font-bold text-gray-900 tracking-tight">מסמכים</h1>
+        <h1 className="text-xl font-bold tracking-tight text-gray-900">מסמכים</h1>
         <p className="text-sm text-gray-500 mt-0.5">תיק MC-2026-0042</p>
       </div>
 
@@ -91,7 +91,7 @@ export default function DocumentsPage({ params }: { params: { id: string } }) {
               {completed} / {total}
             </span>
           </div>
-          <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
+          <div className="h-2 w-full overflow-hidden rounded-full bg-gray-100">
             <div
               className="h-full rounded-full bg-brand-turquoise transition-all"
               style={{ width: `${(completed / total) * 100}%` }}
@@ -150,9 +150,9 @@ export default function DocumentsPage({ params }: { params: { id: string } }) {
       {/* Upload Zone */}
       <div>
         <h2 className="text-sm font-semibold text-gray-700 mb-3">העלאת קבצים</h2>
-        <div className="rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 p-10 text-center hover:border-brand-turquoise/40 hover:bg-cyan-50/30 transition-colors cursor-pointer">
+        <div className="rounded-2xl border-2 border-dashed border-gray-200/60 bg-gray-50 p-10 text-center hover:border-brand-turquoise/40 hover:bg-cyan-50/30 transition-colors cursor-pointer">
           <div className="flex flex-col items-center gap-3">
-            <div className="flex size-14 items-center justify-center rounded-2xl bg-white shadow-sm">
+            <div className="flex size-14 items-center justify-center rounded-2xl bg-white shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
               <UploadCloud className="size-7 text-brand-turquoise" strokeWidth={1.5} />
             </div>
             <div>

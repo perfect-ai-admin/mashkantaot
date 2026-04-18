@@ -76,32 +76,38 @@ export default function ContactPage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative bg-brand-navy text-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_-20%,#2D4A7A60,transparent)]" />
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-brand-turquoise/15 border border-brand-turquoise/25 text-brand-turquoise text-xs font-semibold px-3 py-1.5 rounded-full mb-8 tracking-wide">
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 lg:py-28 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] text-brand-turquoise text-xs font-medium px-3 py-1.5 rounded-full mb-8 tracking-wide backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-turquoise" />
             נשמח לעזור
           </div>
-          <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-display font-bold tracking-tight mb-4">
             צור קשר
           </h1>
-          <p className="text-base md:text-lg text-white/60 max-w-md mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-white/50 max-w-md mx-auto leading-relaxed">
             יש שאלה? רוצה לדעת יותר? השאר פרטים ונחזור אליך תוך יום עסקים
           </p>
         </div>
       </section>
 
       {/* ── Content ──────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-[#FAFAFA]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <section className="py-20 lg:py-28 bg-[#FAFBFC]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
 
             {/* Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-[0_1px_3px_0_rgb(0_0_0/0.05),0_4px_16px_0_rgb(0_0_0/0.07)]">
+              <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-[0_1px_3px_0_rgb(0_0_0/0.04),0_6px_16px_-2px_rgb(0_0_0/0.05)]">
                 <h2 className="text-xl font-bold text-brand-navy mb-1">
                   שלח פנייה
                 </h2>
-                <p className="text-sm text-muted-foreground mb-6">
+                <p className="text-sm text-gray-500 mb-6">
                   מלא את הפרטים ויועץ שלנו יחזור אליך בהקדם
                 </p>
 
@@ -112,7 +118,7 @@ export default function ContactPage() {
                         placeholder="ישראל ישראלי"
                         value={form.name}
                         onChange={(e) => set("name")(e.target.value)}
-                        className="h-11 bg-[#FAFAFA] border-gray-200/70 focus:bg-white transition-colors"
+                        className="h-11 bg-[#FAFBFC] border-gray-200/60 focus:bg-white transition-colors rounded-xl"
                         required
                       />
                     </FormField>
@@ -122,7 +128,7 @@ export default function ContactPage() {
                         type="tel"
                         value={form.phone}
                         onChange={(e) => set("phone")(e.target.value)}
-                        className="h-11 bg-[#FAFAFA] border-gray-200/70 focus:bg-white transition-colors"
+                        className="h-11 bg-[#FAFBFC] border-gray-200/60 focus:bg-white transition-colors rounded-xl"
                         required
                         dir="ltr"
                       />
@@ -135,14 +141,14 @@ export default function ContactPage() {
                       type="email"
                       value={form.email}
                       onChange={(e) => set("email")(e.target.value)}
-                      className="h-11 bg-[#FAFAFA] border-gray-200/70 focus:bg-white transition-colors"
+                      className="h-11 bg-[#FAFBFC] border-gray-200/60 focus:bg-white transition-colors rounded-xl"
                       dir="ltr"
                     />
                   </FormField>
 
                   <FormField label="סוג פנייה" required>
                     <Select value={form.type} onValueChange={(v) => v && set("type")(v)} required>
-                      <SelectTrigger className="h-11 bg-[#FAFAFA] border-gray-200/70">
+                      <SelectTrigger className="h-11 bg-[#FAFBFC] border-gray-200/60 rounded-xl">
                         <SelectValue placeholder="בחר סוג פנייה" />
                       </SelectTrigger>
                       <SelectContent>
@@ -161,14 +167,14 @@ export default function ContactPage() {
                       rows={4}
                       value={form.message}
                       onChange={(e) => set("message")(e.target.value)}
-                      className="bg-[#FAFAFA] border-gray-200/70 focus:bg-white resize-none transition-colors"
+                      className="bg-[#FAFBFC] border-gray-200/60 focus:bg-white resize-none transition-colors rounded-xl"
                     />
                   </FormField>
 
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full h-12 bg-brand-turquoise hover:bg-[#2f9d97] text-white font-semibold rounded-xl shadow-[0_4px_14px_0_rgb(58_175_169/0.35)] hover:shadow-[0_6px_20px_0_rgb(58_175_169/0.45)] transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2"
+                    className="w-full h-12 bg-brand-turquoise hover:bg-[#2f9d97] text-white font-semibold rounded-xl shadow-[0_1px_2px_0_rgb(0_0_0/0.05),0_4px_12px_-2px_rgb(58_175_169/0.3)] hover:shadow-[0_2px_4px_0_rgb(0_0_0/0.08),0_8px_20px_-4px_rgb(58_175_169/0.4)] transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2"
                   >
                     {loading ? (
                       <span className="flex items-center gap-2">
@@ -178,7 +184,7 @@ export default function ContactPage() {
                     ) : (
                       <>
                         שלח פנייה
-                        <Send className="h-4 w-4" strokeWidth={1.75} />
+                        <Send className="h-4 w-4" strokeWidth={1.5} />
                       </>
                     )}
                   </Button>
@@ -189,18 +195,18 @@ export default function ContactPage() {
             {/* Sidebar */}
             <div className="space-y-4">
               {/* Contact info */}
-              <div className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_0_rgb(0_0_0/0.05),0_4px_12px_0_rgb(0_0_0/0.06)]">
+              <div className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_0_rgb(0_0_0/0.04),0_6px_16px_-2px_rgb(0_0_0/0.05)]">
                 <h2 className="text-base font-bold text-brand-navy mb-5">
                   פרטי התקשרות
                 </h2>
                 <div className="space-y-4">
                   {CONTACT_INFO.map((item) => (
                     <div key={item.label} className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-brand-turquoise/10 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="h-4 w-4 text-brand-turquoise" strokeWidth={1.75} />
+                      <div className="w-9 h-9 rounded-xl bg-gray-50 flex items-center justify-center flex-shrink-0">
+                        <item.icon className="h-4 w-4 text-brand-turquoise" strokeWidth={1.5} />
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-muted-foreground mb-0.5">{item.label}</p>
+                        <p className="text-xs font-medium text-gray-400 mb-0.5">{item.label}</p>
                         {item.href ? (
                           <a
                             href={item.href}
@@ -220,18 +226,18 @@ export default function ContactPage() {
 
               {/* Quick CTA card */}
               <div className="bg-brand-navy rounded-2xl p-6 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_0%_100%,#3AAFA920,transparent)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_0%_100%,#3AAFA915,transparent)]" />
                 <div className="relative z-10">
                   <h3 className="font-bold text-base mb-2">לא רוצה לחכות?</h3>
-                  <p className="text-sm text-white/60 mb-5 leading-relaxed">
+                  <p className="text-sm text-white/50 mb-5 leading-relaxed">
                     בדוק זכאות תוך 2 דקות — חינם, ללא התחייבות
                   </p>
                   <Button
                     render={<Link href="/questionnaire" />}
-                    className="w-full h-10 bg-brand-turquoise hover:bg-[#2f9d97] text-white font-semibold text-sm rounded-xl shadow-[0_2px_8px_0_rgb(58_175_169/0.4)] transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2"
+                    className="w-full h-11 bg-brand-turquoise hover:bg-[#2f9d97] text-white font-semibold text-sm rounded-xl shadow-[0_2px_8px_0_rgb(58_175_169/0.3)] transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2"
                   >
                     בדוק עכשיו
-                    <ArrowLeft className="h-4 w-4" strokeWidth={2} />
+                    <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
                   </Button>
                 </div>
               </div>

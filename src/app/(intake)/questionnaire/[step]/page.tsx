@@ -114,7 +114,7 @@ function SummaryView({ steps, answers }: { steps: StepConfig[]; answers: Record<
     <div className="flex flex-col gap-4">
       {contentSteps.map((step) => (
         <div key={step.key} className="rounded-2xl border border-gray-100 bg-white p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_2px_8px_0_rgb(0_0_0/0.04)]">
-          <h3 className="font-bold text-brand-navy mb-4 text-sm tracking-tight">{step.title}</h3>
+          <h3 className="text-sm font-semibold text-gray-900 mb-4">{step.title}</h3>
           <dl className="grid grid-cols-2 gap-x-6 gap-y-3">
             {step.fields.map((field) => (
               <div key={field.name} className="flex flex-col gap-0.5">
@@ -157,7 +157,7 @@ function FieldRenderer({
                 className={cn(
                   'flex items-center gap-2.5 cursor-pointer rounded-xl border px-4 py-3 text-sm font-medium transition-all duration-150',
                   'has-[input[data-checked]]:border-brand-turquoise has-[input[data-checked]]:bg-brand-turquoise/8 has-[input[data-checked]]:text-brand-turquoise has-[input[data-checked]]:shadow-[0_0_0_3px_rgb(58_175_169/0.12)]',
-                  'border-gray-200 hover:border-gray-300 hover:bg-gray-50 text-gray-700'
+                  'border-gray-200/60 hover:border-gray-200 hover:bg-gray-50 text-gray-700'
                 )}
               >
                 <RadioGroupItem value={opt.value} />
@@ -265,7 +265,7 @@ export default function StepPage({ params }: { params: Promise<{ step: string }>
     <div className="flex flex-col gap-8">
       {/* Step header */}
       <div>
-        <h2 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+        <h2 className="text-xl font-bold tracking-tight text-gray-900">
           {stepConfig.title}
         </h2>
         {!isSummary && (

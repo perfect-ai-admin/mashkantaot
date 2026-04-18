@@ -29,7 +29,7 @@ function MortgageCalculator() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <div className="bg-[#FAFAFA] rounded-2xl p-6 border border-gray-100">
+      <div className="bg-[#FAFBFC] rounded-2xl p-6 border border-gray-100">
         <h3 className="text-base font-bold text-brand-navy mb-6">נתוני ההלוואה</h3>
         <div className="space-y-7">
           <SliderField
@@ -91,7 +91,7 @@ function AffordabilityCalculator() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <div className="bg-[#FAFAFA] rounded-2xl p-6 border border-gray-100">
+      <div className="bg-[#FAFBFC] rounded-2xl p-6 border border-gray-100">
         <h3 className="text-base font-bold text-brand-navy mb-6">פרטי הכנסה</h3>
         <div className="space-y-5">
           <NumberField label="הכנסה חודשית נטו (שלך)" value={income} onChange={setIncome} />
@@ -103,9 +103,9 @@ function AffordabilityCalculator() {
 
       <div className="space-y-3">
         {isWarning && (
-          <div className="flex gap-3 p-4 rounded-xl border border-brand-orange/25 bg-brand-orange/8">
-            <AlertTriangle className="h-4 w-4 text-brand-orange flex-shrink-0 mt-0.5" strokeWidth={1.75} />
-            <p className="text-sm text-brand-orange leading-relaxed">
+          <div className="flex gap-3 p-4 rounded-2xl border border-amber-100 bg-amber-50/60">
+            <AlertTriangle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+            <p className="text-sm text-amber-700 leading-relaxed">
               יחס ההחזר להכנסה גבוה מ-40%. מומלץ להפחית התחייבויות קיימות לפני נטילת משכנתא.
             </p>
           </div>
@@ -151,7 +151,7 @@ function RefinanceCalculator() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <div className="bg-[#FAFAFA] rounded-2xl p-6 border border-gray-100">
+      <div className="bg-[#FAFBFC] rounded-2xl p-6 border border-gray-100">
         <h3 className="text-base font-bold text-brand-navy mb-6">פרטי המשכנתא הקיימת</h3>
         <div className="space-y-5">
           <NumberField label="יתרת משכנתא" value={balance} onChange={setBalance} />
@@ -225,13 +225,13 @@ function ConsolidationCalculator() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <div className="bg-[#FAFAFA] rounded-2xl p-6 border border-gray-100">
+      <div className="bg-[#FAFBFC] rounded-2xl p-6 border border-gray-100">
         <h3 className="text-base font-bold text-brand-navy mb-4">הלוואות קיימות</h3>
         <div className="space-y-3 mb-4">
           {loans.map((loan, i) => (
             <div
               key={loan.id}
-              className="bg-white rounded-xl p-4 border border-gray-100 space-y-3"
+              className="bg-white rounded-2xl p-4 border border-gray-100 space-y-3"
             >
               <div className="flex justify-between items-center">
                 <span className="text-sm font-semibold text-brand-navy">הלוואה {i + 1}</span>
@@ -239,29 +239,29 @@ function ConsolidationCalculator() {
                   <button
                     onClick={() => removeLoan(loan.id)}
                     aria-label="הסר הלוואה"
-                    className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-400 hover:text-brand-red hover:bg-brand-red/8 transition-all duration-200"
+                    className="w-7 h-7 rounded-xl flex items-center justify-center text-gray-400 hover:text-brand-red hover:bg-red-50 transition-all duration-200"
                   >
-                    <Trash2 className="h-3.5 w-3.5" strokeWidth={1.75} />
+                    <Trash2 className="h-3.5 w-3.5" strokeWidth={1.5} />
                   </button>
                 )}
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label className="text-xs text-muted-foreground mb-1.5 block">יתרה (₪)</Label>
+                  <Label className="text-xs text-gray-500 mb-1.5 block">יתרה (₪)</Label>
                   <Input
                     type="number"
                     value={loan.amount}
                     onChange={(e) => updateLoan(loan.id, "amount", Number(e.target.value))}
-                    className="h-9 text-sm bg-white"
+                    className="h-9 text-sm bg-white rounded-xl"
                   />
                 </div>
                 <div>
-                  <Label className="text-xs text-muted-foreground mb-1.5 block">החזר/חודש (₪)</Label>
+                  <Label className="text-xs text-gray-500 mb-1.5 block">החזר/חודש (₪)</Label>
                   <Input
                     type="number"
                     value={loan.payment}
                     onChange={(e) => updateLoan(loan.id, "payment", Number(e.target.value))}
-                    className="h-9 text-sm bg-white"
+                    className="h-9 text-sm bg-white rounded-xl"
                   />
                 </div>
               </div>
@@ -271,9 +271,9 @@ function ConsolidationCalculator() {
 
         <button
           onClick={addLoan}
-          className="w-full h-9 rounded-xl border border-dashed border-gray-200 text-sm font-semibold text-gray-500 hover:border-brand-turquoise hover:text-brand-turquoise hover:bg-brand-turquoise/5 transition-all duration-200 flex items-center justify-center gap-2"
+          className="w-full h-9 rounded-xl border border-dashed border-gray-200/60 text-sm font-semibold text-gray-500 hover:border-brand-turquoise hover:text-brand-turquoise hover:bg-brand-turquoise/5 transition-all duration-200 flex items-center justify-center gap-2"
         >
-          <Plus className="h-4 w-4" strokeWidth={2} />
+          <Plus className="h-4 w-4" strokeWidth={1.75} />
           הוסף הלוואה
         </button>
 
@@ -326,15 +326,15 @@ function ResultCard({
   return (
     <div
       className={cn(
-        "rounded-2xl p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_4px_0_rgb(0_0_0/0.06)]",
+        "rounded-2xl p-5",
         highlight
-          ? "bg-brand-turquoise shadow-[0_4px_14px_0_rgb(58_175_169/0.3)]"
+          ? "bg-brand-turquoise shadow-[0_1px_2px_0_rgb(0_0_0/0.05),0_4px_12px_-2px_rgb(58_175_169/0.3)]"
           : muted
-          ? "bg-[#FAFAFA] border border-gray-100"
-          : "bg-white border border-gray-100"
+          ? "bg-[#FAFBFC] border border-gray-100"
+          : "bg-white shadow-[0_1px_3px_0_rgb(0_0_0/0.04),0_4px_12px_-2px_rgb(0_0_0/0.04)]"
       )}
     >
-      <p className={cn("text-xs font-medium mb-2", highlight ? "text-white/75" : "text-muted-foreground")}>
+      <p className={cn("text-xs font-medium mb-2", highlight ? "text-white/70" : "text-gray-500")}>
         {label}
       </p>
       <p className={cn(
@@ -383,7 +383,7 @@ function SliderField({
         onChange={(e) => onChange(Number(e.target.value))}
         className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-brand-turquoise bg-gray-200"
       />
-      <div className="flex justify-between text-[11px] text-muted-foreground mt-1.5 font-medium">
+      <div className="flex justify-between text-[11px] text-gray-400 mt-1.5 font-medium">
         <span>{minLabel}</span>
         <span>{maxLabel}</span>
       </div>
@@ -407,7 +407,7 @@ function NumberField({
         type="number"
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="bg-white h-10"
+        className="bg-white h-11 rounded-xl"
       />
     </div>
   )
@@ -423,26 +423,32 @@ export default function CalculatorPage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative bg-brand-navy text-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_-20%,#2D4A7A60,transparent)]" />
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-brand-turquoise/15 border border-brand-turquoise/25 text-brand-turquoise text-xs font-semibold px-3 py-1.5 rounded-full mb-8 tracking-wide">
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 lg:py-28 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] text-brand-turquoise text-xs font-medium px-3 py-1.5 rounded-full mb-8 tracking-wide backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-turquoise" />
             כלים חינמיים
           </div>
-          <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-display font-bold tracking-tight mb-4">
             מחשבוני משכנתא
           </h1>
-          <p className="text-base md:text-lg text-white/60 max-w-lg mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-white/50 max-w-lg mx-auto leading-relaxed">
             חשב החזר חודשי, בדוק יכולת החזר, השווה מחזור ואיחוד — הכל בלחיצה אחת
           </p>
         </div>
       </section>
 
       {/* ── Tabs ─────────────────────────────────────────────── */}
-      <section className="py-10 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <section className="py-12 lg:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <Tabs defaultValue="mortgage" dir="rtl">
             <div className="mb-8 overflow-x-auto">
-              <TabsList className="inline-flex h-auto p-1 bg-[#FAFAFA] border border-gray-100 rounded-2xl gap-1 min-w-max">
+              <TabsList className="inline-flex h-auto p-1 bg-[#FAFBFC] border border-gray-100 rounded-2xl gap-1 min-w-max">
                 {[
                   { value: "mortgage", label: "מחשבון משכנתא" },
                   { value: "affordability", label: "יכולת החזר" },
@@ -452,7 +458,7 @@ export default function CalculatorPage() {
                   <TabsTrigger
                     key={tab.value}
                     value={tab.value}
-                    className="px-4 py-2.5 text-sm font-semibold rounded-xl text-gray-500 data-[state=active]:bg-white data-[state=active]:text-brand-navy data-[state=active]:shadow-[0_1px_4px_0_rgb(0_0_0/0.08)] transition-all duration-200 whitespace-nowrap"
+                    className="px-4 py-2.5 text-sm font-semibold rounded-xl text-gray-500 data-[state=active]:bg-white data-[state=active]:text-brand-navy data-[state=active]:shadow-[0_1px_3px_0_rgb(0_0_0/0.06)] transition-all duration-200 whitespace-nowrap"
                   >
                     {tab.label}
                   </TabsTrigger>
@@ -475,16 +481,16 @@ export default function CalculatorPage() {
           </Tabs>
 
           {/* CTA below calculators */}
-          <div className="mt-12 pt-10 border-t border-gray-100 text-center">
-            <p className="text-sm text-muted-foreground mb-4">
+          <div className="mt-14 pt-10 border-t border-gray-100 text-center">
+            <p className="text-sm text-gray-500 mb-4">
               רוצה תוצאה מדויקת? דבר עם יועץ — חינם ללא התחייבות
             </p>
             <Button
               render={<Link href="/questionnaire" />}
-              className="bg-brand-turquoise hover:bg-[#2f9d97] text-white font-semibold text-sm px-6 h-11 rounded-xl shadow-[0_4px_14px_0_rgb(58_175_169/0.3)] transition-all duration-200 active:scale-[0.98] flex items-center gap-2 mx-auto"
+              className="h-11 bg-brand-turquoise hover:bg-[#2f9d97] text-white font-semibold text-sm px-6 rounded-xl shadow-[0_1px_2px_0_rgb(0_0_0/0.05),0_4px_12px_-2px_rgb(58_175_169/0.3)] transition-all duration-200 active:scale-[0.98] flex items-center gap-2 mx-auto"
             >
               בדוק זכאות עכשיו
-              <ArrowLeft className="h-4 w-4" strokeWidth={2} />
+              <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
             </Button>
           </div>
         </div>

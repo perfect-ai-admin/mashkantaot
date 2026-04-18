@@ -231,14 +231,14 @@ export default function LeadsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+          <h1 className="text-xl font-bold tracking-tight text-gray-900">
             ניהול לידים
           </h1>
           <p className="text-sm text-gray-500 mt-0.5">{MOCK_LEADS.length} לידים במערכת</p>
         </div>
         <Button
           render={<Link href="/crm/leads/new" />}
-          className="h-9 px-4 bg-brand-navy hover:bg-brand-navy/90 text-white font-semibold text-sm rounded-xl shadow-sm gap-2 flex items-center"
+          className="h-9 px-4 bg-brand-navy hover:bg-brand-navy/90 text-white font-semibold text-sm rounded-xl shadow-[0_1px_2px_0_rgb(0_0_0/0.04)] gap-2 flex items-center"
         >
           <Plus className="h-4 w-4" strokeWidth={2.5} />
           הוסף ליד
@@ -252,12 +252,12 @@ export default function LeadsPage() {
           { label: "חדשים היום", value: newToday, icon: Sparkles, color: "text-brand-turquoise", bg: "bg-brand-turquoise/10" },
           { label: "שיעור המרה", value: `${conversionRate}%`, icon: TrendingUp, color: "text-brand-green", bg: "bg-brand-green/10" },
         ].map((s) => (
-          <Card key={s.label} className="p-4 shadow-sm flex items-center gap-3">
+          <Card key={s.label} className="p-4 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)] flex items-center gap-3">
             <div className={cn("h-10 w-10 rounded-xl flex items-center justify-center", s.bg)}>
               <s.icon className={cn("h-5 w-5", s.color)} strokeWidth={1.75} />
             </div>
             <div>
-              <p className="text-xl font-black text-brand-navy tabular-nums leading-none">{s.value}</p>
+              <p className="text-2xl font-bold text-gray-900 tabular-nums tracking-tight leading-none">{s.value}</p>
               <p className="text-xs text-gray-500 mt-0.5">{s.label}</p>
             </div>
           </Card>
@@ -265,7 +265,7 @@ export default function LeadsPage() {
       </div>
 
       {/* Filters */}
-      <Card className="p-4 shadow-sm">
+      <Card className="p-4 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
             <Search className="absolute end-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" strokeWidth={1.75} />
@@ -317,18 +317,18 @@ export default function LeadsPage() {
       </Card>
 
       {/* Table */}
-      <Card className="shadow-sm overflow-hidden">
+      <Card className="shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)] overflow-hidden">
         <Table>
           <TableHeader>
-            <TableRow className="bg-gray-50/80">
-              <TableHead className="text-xs font-semibold text-gray-500 pe-4">שם</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">טלפון</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">מוצר</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">מקור</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">סטטוס</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500 w-28">ציון</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">מטפל</TableHead>
-              <TableHead className="text-xs font-semibold text-gray-500">תאריך</TableHead>
+            <TableRow className="bg-gray-50/50">
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400 pe-4">שם</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">טלפון</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">מוצר</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">מקור</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">סטטוס</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400 w-28">ציון</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">מטפל</TableHead>
+              <TableHead className="text-xs font-medium uppercase tracking-wider text-gray-400">תאריך</TableHead>
               <TableHead className="w-12" />
             </TableRow>
           </TableHeader>
@@ -343,7 +343,7 @@ export default function LeadsPage() {
               paginated.map((lead) => (
                 <TableRow
                   key={lead.id}
-                  className="hover:bg-gray-50/60 transition-colors duration-100 cursor-pointer"
+                  className="hover:bg-gray-50/50 transition-colors border-b border-gray-50 cursor-pointer"
                 >
                   <TableCell className="pe-4">
                     <Link href={`/crm/leads/${lead.id}`} className="flex items-center gap-3">

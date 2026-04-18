@@ -67,16 +67,16 @@ export function PortalSidebar({ className }: PortalSidebarProps) {
               href={href}
               onClick={() => setMobileOpen(false)}
               className={cn(
-                "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand-turquoise focus-visible:ring-offset-2",
+                "flex items-center gap-3 px-3 h-9 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand-turquoise focus-visible:ring-offset-2",
                 isActive
-                  ? "bg-brand-turquoise/10 text-brand-turquoise"
-                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                  ? "bg-gray-100 text-gray-900"
+                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
               )}
             >
               <Icon
                 className={cn(
                   "w-5 h-5 flex-shrink-0 transition-colors duration-200",
-                  isActive ? "text-brand-turquoise" : "text-gray-400"
+                  isActive ? "text-gray-900" : "text-gray-400"
                 )}
                 strokeWidth={1.75}
               />
@@ -87,7 +87,7 @@ export function PortalSidebar({ className }: PortalSidebarProps) {
                 </span>
               )}
               {isActive && !badge && (
-                <ChevronRight className="w-4 h-4 text-brand-turquoise/50" strokeWidth={1.75} />
+                <ChevronRight className="w-4 h-4 text-gray-400" strokeWidth={1.75} />
               )}
             </Link>
           )

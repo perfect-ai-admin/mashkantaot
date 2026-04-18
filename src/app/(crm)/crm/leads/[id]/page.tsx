@@ -154,7 +154,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
             {lead.initials}
           </div>
           <div>
-            <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">
+            <h1 className="text-xl font-bold tracking-tight text-gray-900">
               {lead.full_name}
             </h1>
             <div className="flex items-center gap-3 mt-1">
@@ -178,7 +178,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
         {/* Main — 2 cols */}
         <div className="lg:col-span-2 space-y-6">
           {/* Contact Info */}
-          <Card className="p-6 shadow-sm">
+          <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <h2 className="text-sm font-bold text-gray-900 mb-4">פרטי קשר</h2>
             <div className="grid grid-cols-2 gap-4">
               {[
@@ -205,7 +205,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
           </Card>
 
           {/* Questionnaire */}
-          <Card className="p-6 shadow-sm">
+          <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <h2 className="text-sm font-bold text-gray-900 mb-4">תשובות שאלון</h2>
             <div className="divide-y divide-gray-50">
               {QUESTIONNAIRE.map((q) => (
@@ -218,7 +218,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
           </Card>
 
           {/* Activity */}
-          <Card className="p-6 shadow-sm">
+          <Card className="p-6 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <h2 className="text-sm font-bold text-gray-900 mb-5">ציר זמן פעילות</h2>
             <div className="relative">
               <div className="absolute end-3.5 top-0 bottom-0 w-px bg-gray-100" />
@@ -246,7 +246,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
         {/* Sidebar */}
         <div className="space-y-4">
           {/* Status */}
-          <Card className="p-5 shadow-sm">
+          <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">סטטוס</h3>
             <div className="mb-3">
               <StatusBadge type="lead" status={status} />
@@ -266,7 +266,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
           </Card>
 
           {/* Advisor */}
-          <Card className="p-5 shadow-sm">
+          <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">יועץ מטפל</h3>
             <div className="flex items-center gap-3">
               <div className="h-9 w-9 rounded-xl bg-brand-navy/10 flex items-center justify-center text-xs font-bold text-brand-navy">
@@ -280,10 +280,10 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
           </Card>
 
           {/* Score */}
-          <Card className="p-5 shadow-sm">
+          <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">ציון ליד</h3>
             <div className="flex items-end gap-2 mb-2">
-              <span className="text-3xl font-black text-brand-navy tabular-nums leading-none">
+              <span className="text-2xl font-bold text-gray-900 tabular-nums tracking-tight leading-none">
                 {lead.score}
               </span>
               <span className="text-sm text-gray-400 mb-0.5">/ 100</span>
@@ -298,18 +298,18 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
           </Card>
 
           {/* Quick Actions */}
-          <Card className="p-5 shadow-sm">
+          <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">פעולות מהירות</h3>
             <div className="space-y-2">
               <button className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-brand-navy/20 bg-brand-navy/5 hover:bg-brand-navy/10 transition-colors text-sm font-semibold text-brand-navy">
                 <FolderOpen className="h-4 w-4" strokeWidth={1.75} />
                 פתח תיק
               </button>
-              <button className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors text-sm font-medium text-gray-700">
+              <button className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-gray-200/60 hover:bg-gray-50 transition-colors text-sm font-medium text-gray-700">
                 <MessageSquare className="h-4 w-4" strokeWidth={1.75} />
                 שלח הודעה
               </button>
-              <button className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors text-sm font-medium text-gray-700">
+              <button className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-gray-200/60 hover:bg-gray-50 transition-colors text-sm font-medium text-gray-700">
                 <Clock className="h-4 w-4" strokeWidth={1.75} />
                 קבע שיחה
               </button>
@@ -317,7 +317,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
           </Card>
 
           {/* Notes */}
-          <Card className="p-5 shadow-sm">
+          <Card className="p-5 shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]">
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">הערות</h3>
             <Textarea
               placeholder="הוסף הערה..."

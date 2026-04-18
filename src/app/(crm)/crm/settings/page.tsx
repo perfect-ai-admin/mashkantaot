@@ -114,7 +114,7 @@ export default function SettingsPage() {
     <div className="space-y-6 max-w-3xl">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-display font-bold text-brand-navy tracking-tight">הגדרות</h1>
+        <h1 className="text-xl font-bold tracking-tight text-gray-900">הגדרות</h1>
         <p className="text-sm text-gray-500 mt-1">נהל את חשבונך והגדרות המערכת</p>
       </div>
 
@@ -149,7 +149,7 @@ export default function SettingsPage() {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-navy to-brand-blue flex items-center justify-center text-white text-xl font-bold select-none">
                   יכ
                 </div>
-                <button className="absolute -bottom-1 -left-1 w-6 h-6 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center hover:bg-gray-50 transition-colors">
+                <button className="absolute -bottom-1 -left-1 w-6 h-6 rounded-full bg-white border border-gray-200/60 shadow-[0_1px_2px_0_rgb(0_0_0/0.04)] flex items-center justify-center hover:bg-gray-50 transition-colors">
                   <Camera className="h-3 w-3 text-gray-500" strokeWidth={2} />
                 </button>
               </div>
@@ -198,7 +198,7 @@ export default function SettingsPage() {
               <SavedBadge show={profileSaved} />
               <Button
                 onClick={() => saveWithFeedback(setProfileSaved)}
-                className="bg-brand-navy hover:bg-brand-blue text-white shadow-sm"
+                className="bg-brand-navy hover:bg-brand-blue text-white shadow-[0_1px_2px_0_rgb(0_0_0/0.04)]"
               >
                 שמור שינויים
               </Button>
@@ -247,7 +247,7 @@ export default function SettingsPage() {
               <SavedBadge show={notifSaved} />
               <Button
                 onClick={() => saveWithFeedback(setNotifSaved)}
-                className="bg-brand-navy hover:bg-brand-blue text-white shadow-sm"
+                className="bg-brand-navy hover:bg-brand-blue text-white shadow-[0_1px_2px_0_rgb(0_0_0/0.04)]"
               >
                 שמור הגדרות
               </Button>
@@ -325,7 +325,7 @@ export default function SettingsPage() {
                   <p className="text-sm font-semibold text-gray-800">שיוך לידים ליועץ</p>
                   <p className="text-xs text-gray-500 mt-0.5">כיצד ליד חדש משויך ליועץ</p>
                 </div>
-                <div className="flex items-center gap-1 rounded-lg border border-gray-200 p-0.5">
+                <div className="flex items-center gap-1 rounded-lg border border-gray-200/60 p-0.5">
                   {(["auto", "manual"] as const).map((mode) => (
                     <button
                       key={mode}
@@ -333,7 +333,7 @@ export default function SettingsPage() {
                       className={cn(
                         "px-3 py-1.5 rounded-md text-xs font-semibold transition-all",
                         system.assignmentMode === mode
-                          ? "bg-brand-navy text-white shadow-sm"
+                          ? "bg-brand-navy text-white shadow-[0_1px_2px_0_rgb(0_0_0/0.04)]"
                           : "text-gray-500 hover:text-gray-800"
                       )}
                     >
@@ -368,7 +368,7 @@ export default function SettingsPage() {
                   <p className="text-sm font-semibold text-gray-800">שפת מערכת</p>
                   <p className="text-xs text-gray-500 mt-0.5">שפת הממשק וההתראות</p>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-200">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-200/60">
                   <span className="text-lg leading-none">🇮🇱</span>
                   <span className="text-sm font-semibold text-gray-700">עברית</span>
                 </div>
@@ -379,7 +379,7 @@ export default function SettingsPage() {
               <SavedBadge show={systemSaved} />
               <Button
                 onClick={() => saveWithFeedback(setSystemSaved)}
-                className="bg-brand-navy hover:bg-brand-blue text-white shadow-sm"
+                className="bg-brand-navy hover:bg-brand-blue text-white shadow-[0_1px_2px_0_rgb(0_0_0/0.04)]"
               >
                 שמור הגדרות
               </Button>
