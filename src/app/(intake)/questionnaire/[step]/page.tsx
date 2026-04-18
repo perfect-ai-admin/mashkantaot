@@ -320,7 +320,7 @@ export default function StepPage({ params }: { params: Promise<{ step: string }>
           ))}
 
           {/* Navigation buttons — sticky on mobile */}
-          <div className="flex gap-3 justify-between pt-4 sticky bottom-0 bg-brand-cream/95 backdrop-blur-sm py-4 -mx-4 px-4 md:static md:bg-transparent md:backdrop-blur-none md:mx-0 md:px-0 md:py-0 border-t border-gray-100 md:border-0 mt-2">
+          <div className="flex gap-3 justify-between pt-4 sticky bottom-0 bg-[#FAFBFC]/95 backdrop-blur-sm py-4 -mx-4 px-4 md:static md:bg-transparent md:backdrop-blur-none md:mx-0 md:px-0 md:py-0 border-t border-gray-100 md:border-0 mt-2">
             <Button
               type="button"
               onClick={handlePrev}

@@ -15,7 +15,7 @@ export default function QuestionnaireLayout({ children }: { children: React.Reac
   const progress = totalSteps > 0 && isStepPage ? (currentStep / totalSteps) * 100 : 0
 
   return (
-    <div className="min-h-screen bg-brand-cream flex flex-col" dir="rtl">
+    <div className="min-h-screen bg-[#FAFBFC] flex flex-col" dir="rtl">
       {/* Header */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-20 shadow-[0_1px_0_0_rgb(0_0_0/0.04)]">
         <div className="max-w-2xl mx-auto px-4 h-14 flex items-center justify-between">
