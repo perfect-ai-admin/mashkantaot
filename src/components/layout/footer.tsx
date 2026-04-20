@@ -14,6 +14,7 @@ const services = [
   { label: "ליווי מלא", href: "/contact" },
   { label: "בדיקת תנאים", href: "/contact" },
   { label: "השוואת בנקים", href: "/calculator" },
+  { label: "מאמרים וטיפים", href: "/blog" },
   { label: "אודות", href: "/about" },
   { label: "צור קשר", href: "/contact" },
 ]
