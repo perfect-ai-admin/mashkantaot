@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { Home, RefreshCw, Layers, ChevronLeft } from 'lucide-react'
+import { Home, RefreshCw, Layers } from 'lucide-react'
 import { useQuestionnaireStore } from '@/stores/questionnaire-store'
 import type { ProductType } from '@/types/database'
 import { cn } from '@/lib/utils'
@@ -55,49 +55,50 @@ function QuestionnaireContent() {
   }
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-10">
       <div className="text-center">
         <h1 className="text-2xl font-bold text-gray-900 tracking-tight mb-2">
-          איזה שירות מתאים לך?
+          מה מעניין אותך?
         </h1>
-        <p className="text-gray-500 leading-relaxed">
-          בחרו את הסיוע שאתם מחפשים ונתחיל בשאלון קצר
+        <p className="text-sm text-gray-500">
+          בחר מסלול ונתחיל בשאלון קצר
         </p>
       </div>
 
-      <div className="flex flex-col gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {PRODUCTS.map(({ type, icon: Icon, title, description, badge }) => (
           <button
             key={type}
             onClick={() => handleSelect(type)}
             className={cn(
-              'relative flex items-start gap-5 rounded-2xl border bg-white p-6 text-right transition-all duration-200',
-              'border-gray-100 hover:border-brand-turquoise/40 hover:shadow-[0_4px_20px_0_rgb(58_175_169/0.12)] cursor-pointer',
-              'shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_2px_8px_0_rgb(0_0_0/0.04)]',
-              'hover:-translate-y-0.5 active:translate-y-0 group'
+              'relative flex flex-col bg-white rounded-2xl p-6 text-start cursor-pointer',
+              'border border-gray-100 transition-all duration-200',
+              'hover:border-brand-turquoise/30 hover:shadow-[0_4px_20px_-4px_rgb(58_175_169/0.15)]',
+              'shadow-[0_1px_2px_0_rgb(0_0_0/0.04),0_1px_3px_0_rgb(0_0_0/0.08)]',
+              'focus-visible:ring-2 focus-visible:ring-brand-turquoise focus-visible:ring-offset-2',
+              'group'
             )}
           >
             {badge && (
-              <span className="absolute top-4 start-4 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-turquoise text-white">
+              <span className="absolute top-3 start-3 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-turquoise text-white">
                 {badge}
               </span>
             )}
-            <div className="flex w-14 h-14 shrink-0 items-center justify-center rounded-2xl bg-brand-turquoise/10 group-hover:bg-brand-turquoise/15 transition-colors duration-200">
-              <Icon className="w-7 h-7 text-brand-turquoise" strokeWidth={1.75} />
+            <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center">
+              <Icon className="w-5 h-5 text-gray-500" strokeWidth={1.5} />
             </div>
-            <div className="flex flex-col gap-1 flex-1 min-w-0">
-              <span className="text-base font-semibold text-gray-900 tracking-tight">{title}</span>
-              <span className="text-sm text-gray-500 leading-relaxed">{description}</span>
-            </div>
-            <div className="w-8 h-8 rounded-xl bg-gray-50 group-hover:bg-brand-turquoise/10 flex items-center justify-center shrink-0 mt-3 transition-colors duration-200">
-              <ChevronLeft className="w-4 h-4 text-gray-400 group-hover:text-brand-turquoise transition-colors duration-200" strokeWidth={2} />
-            </div>
+            <h3 className="text-base font-semibold text-gray-900 mt-4">
+              {title}
+            </h3>
+            <p className="text-sm text-gray-500 mt-1 leading-relaxed">
+              {description}
+            </p>
           </button>
         ))}
       </div>
 
       <p className="text-center text-xs text-gray-400">
-        השאלון לוקח כ-3 דקות &middot; המידע מאובטח ומוצפן
+        השאלון לוקח כ-2 דקות &middot; המידע מאובטח
       </p>
     </div>
   )
