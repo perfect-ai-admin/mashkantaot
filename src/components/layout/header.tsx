@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X, ArrowLeft } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -17,6 +18,11 @@ const navLinks = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const pathname = usePathname()
+
+  // Only the homepage has a dark hero — everywhere else the header needs a solid bg
+  const isHomepage = pathname === "/"
+  const showDarkMode = isHomepage && !isScrolled
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 8)
@@ -29,9 +35,9 @@ export function Header() {
       dir="rtl"
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/90 backdrop-blur-xl shadow-[0_1px_3px_0_rgb(0_0_0/0.04)] border-b border-gray-100"
-          : "bg-transparent"
+        showDarkMode
+          ? "bg-transparent"
+          : "bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_0_rgb(0_0_0/0.06)] border-b border-gray-200/60"
       )}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -45,7 +51,7 @@ export function Header() {
             <span
               className={cn(
                 "font-bold text-lg tracking-tight transition-colors duration-200",
-                isScrolled ? "text-gray-900" : "text-white"
+                showDarkMode ? "text-white" : "text-gray-900"
               )}
             >
               משכנתא חכמה
@@ -60,9 +66,11 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "px-3.5 py-2 rounded-lg text-[13px] font-medium transition-all duration-200",
-                  isScrolled
-                    ? "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                    : "text-white/70 hover:text-white hover:bg-white/10"
+                  showDarkMode
+                    ? "text-white/70 hover:text-white hover:bg-white/10"
+                    : pathname === link.href
+                    ? "text-brand-turquoise bg-brand-turquoise/5"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                 )}
               >
                 {link.label}
@@ -75,10 +83,10 @@ export function Header() {
             <Link
               href="/login"
               className={cn(
-                "h-10 px-5 rounded-xl text-sm font-semibold transition-all duration-200 inline-flex items-center",
-                isScrolled
-                  ? "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  : "text-white/80 hover:text-white"
+                "h-10 px-5 rounded-xl text-sm font-semibold transition-all duration-200 inline-flex items-center border",
+                showDarkMode
+                  ? "text-white/80 hover:text-white border-white/20 hover:bg-white/10"
+                  : "text-gray-700 hover:text-gray-900 border-gray-200 hover:bg-gray-50"
               )}
             >
               התחברות
@@ -98,7 +106,7 @@ export function Header() {
             aria-label={isMobileOpen ? "סגור תפריט" : "פתח תפריט"}
             className={cn(
               "lg:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200",
-              isScrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10"
+              showDarkMode ? "text-white hover:bg-white/10" : "text-gray-700 hover:bg-gray-100"
             )}
           >
             {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -119,7 +127,12 @@ export function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setIsMobileOpen(false)}
-              className="px-4 py-3 rounded-xl text-[15px] font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-150"
+              className={cn(
+                "px-4 py-3 rounded-xl text-[15px] font-medium transition-all duration-150",
+                pathname === link.href
+                  ? "text-brand-turquoise bg-brand-turquoise/5"
+                  : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+              )}
             >
               {link.label}
             </Link>

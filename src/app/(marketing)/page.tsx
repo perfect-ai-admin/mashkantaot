@@ -109,7 +109,7 @@ export default function HomePage() {
     <div className="flex flex-col" dir="rtl">
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0c1929] via-[#0f2035] to-[#0c1929]">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#0c1929] via-[#0f2035] to-[#0c1929] -mt-[72px] pt-[72px]">
         {/* Radial glow at top center */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-5%,rgba(58,175,169,0.12),transparent)]" />
         {/* Secondary warm glow */}
